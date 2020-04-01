@@ -1,0 +1,23 @@
+'use strict'
+
+const https = require('http')
+
+const options = {
+  hostname: '127.0.0.1',
+  port: 3000,
+  path: '/',
+  method: 'GET',
+}
+
+const req = https.request(options, res => {
+  console.log(`statusCode: ${res.statusCode}`)
+  res.on('data', d => {
+    process.stdout.write(d)
+  })
+})
+
+req.on('error', error => {
+  console.log('ERROREEE:', error)
+})
+
+req.end();
