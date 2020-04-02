@@ -111,7 +111,10 @@ wss.on('connection', function(ws) {
 const chat = (ws) => {
   rl.prompt();
   rl.on('line', message => {
-    ws.send('message', message, 'server');
+    ws.send(command(
+        'message',
+        message,
+        'server'));
     rl.prompt()
   })
 };
