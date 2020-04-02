@@ -93,7 +93,7 @@ const commands = {
     user.currentRoom = roomName
   }
 };
-
+// TODO this is store context ws -> user.connection = ws
 wss.on('connection', function(ws) {
   const user = { name: '', connection: ws, currentRoom: null };
   ws.on('message', message => {
